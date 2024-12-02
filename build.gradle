@@ -13,3 +13,15 @@ println "project: ${name}"
 
 //
 task("hello")
+
+// tasks.findByName()
+
+hello.description = "Hello task"
+hello.group = "dmdev"
+
+// 2
+hello {
+    println "configuration phase. hello"
+    description = "Hello task"
+    group = "dmdev"
+}
