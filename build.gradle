@@ -11,14 +11,6 @@ println "gradle id: ${gradle.hashCode()}"
 println "root: ${rootProject.hashCode()}, ${project.hashCode()}, ${gradle.rootProject}"
 println "project: ${name}"
 
-def map = [description:"Hello task", group : "dmdev"]
-/*
-task (map, "hello") {
-    println "configuration phase. hello"
-    println "taks $description, group : $group, actions : ${actions.size()},"
-}
- */
-
 //
 task hello(description:"Hello task", group : "dmdev", type: DefaultTask) {
     println "configuration phase. hello"
@@ -39,23 +31,30 @@ task hello(description:"Hello task", group : "dmdev", type: DefaultTask) {
     println "path task : $path,"
 }
 
-// tasks.findByName()
-
-// hello.description = "Hello task"
-// hello.group = "dmdev"
-
-// 2
-// hello {
-//     println "configuration phase. hello"
-//     description = "Hello task"
-//     group = "dmdev"
-// }
-
-//
-/*
-hello.doLast {
-    println "Some data"
+task first {
+    doLast {
+        println "Task 1"
+    }
 }
- */
 
-// gradle.taskGraph.allTasks
+task second {
+    doLast {
+        println "Task 2"
+    }
+}
+
+task third {
+    doLast {
+        println "Task 3"
+    }
+}
+
+task fourth {
+    doLast {
+        println "Task 4"
+    }
+}
+
+fourth.dependsOn second
+second.dependsOn first
+second.finalizedBy third
