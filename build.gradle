@@ -12,7 +12,7 @@ println "root: ${rootProject.hashCode()}, ${project.hashCode()}, ${gradle.rootPr
 println "project: ${name}"
 
 //
-task hello(description:"Hello task", group : "dmdev", type: DefaultTask) {
+task hello(description: "Hello task", group: "dmdev", type: DefaultTask) {
     println "configuration phase. hello"
     println "taks $description, group : $group, actions : ${actions.size()},"
 
@@ -55,6 +55,24 @@ task fourth {
     }
 }
 
+//fourth.dependsOn second
+//second.dependsOn first
+//second.finalizedBy third
+fourth.dependsOn first
 fourth.dependsOn second
-second.dependsOn first
-second.finalizedBy third
+fourth.dependsOn third
+
+first.mustRunAfter second
+// second.shouldRunAfter first
+
+
+gradle.taskGraph.whenReady { TaskExecutionGraph graph ->
+    println "---- Graph:"
+    graph.allTasks.each {
+        println "${it.name}"
+    }
+}
+
+// 2
+// 1   4
+// 3
