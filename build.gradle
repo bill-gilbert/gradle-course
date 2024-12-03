@@ -1,8 +1,13 @@
+plugins {
+    id 'java'
+}
+
 apply from: 'script.gradle'
-apply plugin: CustomPluging
+apply plugin: CustomPlugins
+// apply plugin: 'java'
 
 
-class CustomPluging implements Plugin<Project> {
+class CustomPlugins implements Plugin<Project> {
 
     @Override
     void apply(Project project) {
