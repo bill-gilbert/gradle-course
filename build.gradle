@@ -6,6 +6,21 @@ apply from: 'script.gradle'
 apply plugin: CustomPlugins
 // apply plugin: 'java'
 
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir("$buildDir/generated-sources/querydsl")
+        }
+    }
+    test {
+    }
+}
+
+
 
 class CustomPlugins implements Plugin<Project> {
 
