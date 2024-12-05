@@ -10,6 +10,10 @@ repositories {
     mavenCentral()
 }
 
+dependencies {
+
+}
+
 sourceSets {
     main {
         java {
