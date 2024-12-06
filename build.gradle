@@ -10,7 +10,15 @@ repositories {
     mavenCentral()
 }
 
+configurations {
+    Configuration configuration = getByName("implementation")
+    dmdev {
+        description = "dmdev configuration"
+    }
+}
+
 dependencies {
+    implementation "org.springframework:spring-webmvc:5.3.9"
 }
 
 sourceSets {
