@@ -15,10 +15,25 @@ configurations {
     dmdev {
         description = "dmdev configuration"
     }
+
+    all {
+        resolutionStrategy {
+            force("org.springframework:spring-aop:5.3.8")
+        }
+    }
 }
 
 dependencies {
-    implementation "org.springframework:spring-webmvc:5.3.9"
+    implementation ( "org.springframework:spring-webmvc:5.3.9") {
+        //transitive(false)
+    //    exclude(group: 'org.springframework', module: 'spring-aop')
+    }
+    implementation ('org.springframework:spring-aop') {
+//        version {
+//            strictly("5.3.8")
+//        }
+    }
+
 }
 
 sourceSets {
