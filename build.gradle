@@ -1,10 +1,10 @@
 plugins {
-    id 'java'
+//    id 'java'
 }
 
 apply from: 'script.gradle'
 apply plugin: CustomPlugins
-// apply plugin: 'java'
+ apply plugin: 'java'
 
 repositories {
     mavenCentral()
@@ -18,21 +18,23 @@ configurations {
 
     all {
         resolutionStrategy {
-            force("org.springframework:spring-aop:5.3.8")
+        //     force("org.springframework:spring-aop:5.3.8")
         }
     }
 }
 
 dependencies {
-    implementation ( "org.springframework:spring-webmvc:5.3.9") {
+    compileOnly ( "org.springframework.boot:spring-boot-dependencies:3.4.0")
+
+   // implementation ( "org.springframework:spring-webmvc")
         //transitive(false)
     //    exclude(group: 'org.springframework', module: 'spring-aop')
-    }
-    implementation ('org.springframework:spring-aop') {
+//    }
+   // implementation ('org.springframework:spring-aop')
 //        version {
 //            strictly("5.3.8")
 //        }
-    }
+//    }
 
 }
 
