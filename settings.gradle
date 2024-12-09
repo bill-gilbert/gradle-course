@@ -7,7 +7,6 @@
  */
 
 rootProject.name = 'gradle-course'
-
-println "init phase, settings file: ${toString()}"
-println "gradle id: ${gradle.hashCode()}"
-println "${settings.settingsDir}"
+//println "init phase, settings file: ${toString()}"
+//println "gradle id: ${gradle.hashCode()}"
+//println "${settings.settingsDir}"

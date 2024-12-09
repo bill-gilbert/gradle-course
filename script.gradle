@@ -8,54 +8,54 @@ import java.time.LocalDate
  * This project uses @Incubating APIs which are subject to change.
  */
 
-println "configuration phase"
-println "gradle id: ${gradle.hashCode()}"
-println "root: ${rootProject.hashCode()}, ${project.hashCode()}, ${gradle.rootProject}"
-println "project: ${name}"
+//println "configuration phase"
+//println "gradle id: ${gradle.hashCode()}"
+//println "root: ${rootProject.hashCode()}, ${project.hashCode()}, ${gradle.rootProject}"
+//println "project: ${name}"
 
 //
 
-task first {
-    doLast {
-        println "Task 1"
-    }
-}
-
-task second {
-    doLast {
-        println "Task 2"
-    }
-}
-
-task third {
-    doLast {
-        println "Task 3"
-    }
-}
-
-task fourth(group: "dmdev") {
-    doLast {
-        println "Task 4"
-    }
-}
+//task first {
+//    doLast {
+//        println "Task 1"
+//    }
+//}
+//
+//task second {
+//    doLast {
+//        println "Task 2"
+//    }
+//}
+//
+//task third {
+//    doLast {
+//        println "Task 3"
+//    }
+//}
+//
+//task fourth(group: "dmdev") {
+//    doLast {
+//        println "Task 4"
+//    }
+//}
 
 //fourth.dependsOn second
 //second.dependsOn first
 //second.finalizedBy third
-fourth.dependsOn first
-fourth.dependsOn second
-fourth.dependsOn third
-
-first.mustRunAfter second
-// second.shouldRunAfter first
-
-
-gradle.taskGraph.whenReady { TaskExecutionGraph graph ->
-    println "---- Graph:"
-    graph.allTasks.each {
-        println "${it.name}"
-    }
-}
+//fourth.dependsOn first
+//fourth.dependsOn second
+//fourth.dependsOn third
+//
+//first.mustRunAfter second
+//// second.shouldRunAfter first
+//
+//
+//gradle.taskGraph.whenReady { TaskExecutionGraph graph ->
+//    println "---- Graph:"
+//    graph.allTasks.each {
+//        println "${it.name}"
+//    }
+//}
 
 /*
 gradle.taskGraph.beforeTask { Task task ->
@@ -72,7 +72,7 @@ gradle.taskGraph.beforeTask { Task task ->
 //}
 
 
-defaultTasks("second")
+//defaultTasks("second")
 
 
 ext {
@@ -81,7 +81,12 @@ ext {
 }
 
 
-//println "------All properties:"
-//println project.properties
-println "------System:"
-println System.getProperty("sys.example")
+
+
+
+//
+//
+////println "------All properties:"
+////println project.properties
+//println "------System:"
+//println System.getProperty("sys.example")
